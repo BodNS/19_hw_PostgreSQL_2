@@ -114,3 +114,13 @@ FROM Sale AS S
 WHERE current_date::date - S.date::date <=5
 GROUP BY S.date
 ORDER BY S.date;
+
+--6) подсчитать сумму продаж за сегодня
+SELECT sum (S.sum_sale) AS "Summa_prodazh"
+FROM Sale AS S 
+WHERE current_date::date = S.date::date;
+
+--7) подсчитать количество продаж за сегодня
+SELECT count (S.id) AS "KolVo_prodazh"
+FROM Sale AS S 
+WHERE current_date::date = S.date::date;
